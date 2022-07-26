@@ -5,10 +5,30 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 
 
-def calculate_distance(rA, rB):
+def calculate_distance(rA: np.ndarray, rB: np.ndarray) -> np.floating:
+    """
+    Calculate distance between two points
+    
+    Paramters
+    ---------
+    rA, rB: np.ndarray
+        The coordinates of each point.
+
+    Returns
+    -------
+    dist: np.floating
+        The distance between the two points.
+
+    Examples
+    --------
+    >>> r1 = np.array([0, 0, 0])
+    >>> r2 = np.array([0, 1.0, 0])
+    >>> calculate_distance(r1, r2)
+    1.0
+    """
     # This function calculates the distance between two points given as numpy arrays.
     d = rA - rB
-    dist = np.linalg.norm(d)
+    dist: np.floating = np.linalg.norm(d)
     return dist
 
 
@@ -175,3 +195,30 @@ atom_colors = {
     "Br": "#F4A460",
     "S": "yellow",
 }
+
+def canvas(with_attribution=True):
+    """
+    Placeholder function to show example docstring (NumPy format).
+
+    Replace this function and doc string for your own project.
+    
+    Parameters
+    ----------
+    with_attribution : bool, Optional, default: True
+        Set whether or not to display who the quote is from.
+    
+    Returns
+    -------
+    quote : str
+        Compiled string including quote and optional attribution.
+    """
+
+    quote = "The code is but a canvas to our imagination."
+    if with_attribution:
+        quote += "\n\t- Adapted from Henry David Thoreau"
+    return quote
+
+
+if __name__ == "__main__":
+    # Do something if this file is invoked on its own
+    print(canvas())
