@@ -16,3 +16,5 @@ Copyright (c) 2022, Samuel Bekoe
  
 Project based on the 
 [Computational Molecular Science Python Cookiecutter](https://github.com/molssi/cookiecutter-cms) version 1.6.
+
+### Add functions.py
