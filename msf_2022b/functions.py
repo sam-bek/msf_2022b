@@ -8,7 +8,7 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 def calculate_distance(rA: np.ndarray, rB: np.ndarray) -> np.floating:
     """
     Calculate distance between two points
-    
+
     Paramters
     ---------
     rA, rB: np.ndarray
@@ -171,6 +171,9 @@ def bond_histogram(bond_list, save_location=None, dpi=300, graph_min=0, graph_ma
 
 def build_bond_list(coordinates, max_bond=1.5, min_bond=0):
 
+    if min_bond < 0:
+        raise ValueError("Minimum bond length must be greater than or equal to zero")
+
     # Find the bonds in a molecule (set of coordinates) based on distance criteria.
     bonds = {}
     num_atoms = len(coordinates)
@@ -196,17 +199,18 @@ atom_colors = {
     "S": "yellow",
 }
 
+
 def canvas(with_attribution=True):
     """
     Placeholder function to show example docstring (NumPy format).
 
     Replace this function and doc string for your own project.
-    
+
     Parameters
     ----------
     with_attribution : bool, Optional, default: True
         Set whether or not to display who the quote is from.
-    
+
     Returns
     -------
     quote : str
