@@ -22,6 +22,8 @@ def methane_molecule():
         [1.0, 1.0, -0.4]
     ])
 
+    return symbols, coordinates
+    
 @pytest.mark.skip
 def test_calculate_angle():
     """Test that checks if calculate_angle functions calculates what is expected"""
@@ -59,12 +61,14 @@ def test_calculate_distance():
 
     assert expected_output == observed_output
 
-def test_buld_bond_list_error():
-    coordinates = np.array([
-        [0.0, 0.0, 0.0],
-        [0.0, 1.0, 0.0],
-        [1.0, 1.0, 1.0]
-    ])
+def test_build_bond_list_error(methane_molecule):
+    # coordinates = np.array([
+    #     [0.0, 0.0, 0.0],
+    #     [0.0, 1.0, 0.0],
+    #     [1.0, 1.0, 1.0]
+    # ])
+
+    coordinates = methane_molecule[1]
 
     with pytest.raises(ValueError):
         msf_2022b.build_bond_list(coordinates, min_bond=-1)
